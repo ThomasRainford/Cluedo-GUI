@@ -1,8 +1,10 @@
-package game;
+package tests.game;
 
 import board.Board;
 import board.Location;
 import board.token.Player;
+import game.Game;
+
 import org.junit.jupiter.api.Test;
 
 

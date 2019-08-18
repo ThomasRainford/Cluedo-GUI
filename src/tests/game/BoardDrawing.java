@@ -1,4 +1,4 @@
-package game;
+package tests.game;
 
 import board.*;
 import board.token.Player;
@@ -6,6 +6,9 @@ import board.token.Weapon;
 import cards.CharacterCard;
 import cards.RoomCard;
 import cards.WeaponCard;
+import game.Game;
+import game.Suggestion;
+
 import org.junit.jupiter.api.Test;
 
 

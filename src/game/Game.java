@@ -128,10 +128,9 @@ public class Game {
 
 
     /**
-     * Initialise all the player objects and remove a
-     * specified number
+     * Initialise player which have been selected
      *
-     * @param numberPlayers - the current number of players
+     * @param names - 
      */
     public void initialisePlayers(List<String> names) {
     	players = new ArrayList<>();
@@ -146,6 +145,33 @@ public class Game {
 //        players.add(new Player("Prof. Plum", null));
 //        players.add(new Player("Miss Scarlett", null));
 //        players.add(new Player("Col. Mustard", null));
+        
+        
+    }
+    
+    
+    
+    /**
+     * Initialise all the player objects and remove a
+     * specified number
+     * 
+     * Used for testing
+     *
+     * @param numberPlayers - the current number of players
+     */
+    public void initialisePlayers(int numberPlayers) {
+    	players = new ArrayList<>();
+    	
+		players.add(new Player("Mrs. White", null));
+		players.add(new Player("Mr. Green", null));
+		players.add(new Player("Mrs. Peacock", null));
+		players.add(new Player("Prof. Plum", null));
+		players.add(new Player("Miss Scarlett", null));
+		players.add(new Player("Col. Mustard", null));
+		
+		for(int i = 5; i > numberPlayers-1; i--) {
+			players.remove(i);
+		}
         
         
     }
