@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Window;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,18 +13,14 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.JRadioButton;
-import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
 
-import board.token.Player;
 import game.Game;
 
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

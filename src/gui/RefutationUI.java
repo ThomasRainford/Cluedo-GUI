@@ -1,10 +1,7 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Window;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,21 +10,14 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.border.EmptyBorder;
-
 import board.token.Player;
 import cards.Card;
-import cards.CharacterCard;
-import cards.RoomCard;
-import cards.WeaponCard;
 import game.Game;
 import game.Suggestion;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class RefutationUI extends JDialog {
 
@@ -82,7 +72,7 @@ public class RefutationUI extends JDialog {
         getContentPane().add(cardSelectPanel);
         cardSelectPanel.setLayout(null);
         
-        comboBox = new JComboBox();
+        comboBox = new JComboBox<>();
         comboBox.setBounds(40, 50, 114, 20);
         cardSelectPanel.add(comboBox);
         

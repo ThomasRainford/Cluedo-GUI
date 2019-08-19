@@ -4,7 +4,6 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
@@ -18,24 +17,19 @@ import board.token.Token;
 import cards.Card;
 import game.Game;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractAction;
 import javax.swing.AbstractButton;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
