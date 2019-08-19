@@ -25,7 +25,7 @@ import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class PlayerSetup extends JDialog {
+public class PlayerSetupUI extends JDialog {
 	
 	private Game game = new Game();
 	private Map<String, String> playerNames;
@@ -43,7 +43,7 @@ public class PlayerSetup extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public PlayerSetup(JFrame frame, Window window, String title) {
+	public PlayerSetupUI(JFrame frame, Window window, String title) {
 		super(window, title);
 		setMinimumSize(new Dimension(350, 450));
 		

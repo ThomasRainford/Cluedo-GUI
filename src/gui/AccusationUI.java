@@ -111,7 +111,7 @@ public class AccusationUI extends JDialog {
 	
 	
 	public void setupNumPlayers(ActionUI actionUI) {
-        new PlayerSetup(actionUI.getFrame(), SwingUtilities.windowForComponent(actionUI.getFrame()),
+        new PlayerSetupUI(actionUI.getFrame(), SwingUtilities.windowForComponent(actionUI.getFrame()),
                 "Character Selection");
     }
 }

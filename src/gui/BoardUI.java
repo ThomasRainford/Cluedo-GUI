@@ -64,6 +64,7 @@ public class BoardUI extends JFrame {
 	private ActionUI action;
 	private JPanel boardPanel;
 	private JPanel contentPane;
+	private JPanel playerTokenPanel;
 	private JLabel diceNumber_1;
 	private JLabel diceNumber_2;
 	private JLabel playerTurnLabel;
@@ -192,7 +193,7 @@ public class BoardUI extends JFrame {
 		// label indicating the player who's turn it is
 		playerTurnLabel = new JLabel("");
 		playerTurnLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		playerTurnLabel.setBounds(50, 11, 112, 27);
+		playerTurnLabel.setBounds(78, 11, 112, 27);
 		dicePanel.add(playerTurnLabel);
 		JPanel dice_1_1 = new JPanel();
 		dice_1_1.setBounds(36, 52, 32, 31);
@@ -249,6 +250,10 @@ public class BoardUI extends JFrame {
 		locationLabel = new JLabel("");
 		locationLabel.setBounds(77, 167, 93, 17);
 		dicePanel.add(locationLabel);
+		
+		playerTokenPanel = new JPanel();
+		playerTokenPanel.setBounds(36, 11, 32, 30);
+		dicePanel.add(playerTokenPanel);
 		
 		// player movement panel
 		movementPanel = new JPanel();
@@ -386,7 +391,7 @@ public class BoardUI extends JFrame {
 		nextPlayerButton.setEnabled(false);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 55, 21);
+		menuBar.setBounds(0, 0, 45, 21);
 		contentPane.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Menu");
@@ -418,6 +423,9 @@ public class BoardUI extends JFrame {
 	}
 	
 	
+	
+
+
 	/**
 	 * Starts the game by running the first turn
 	 */
@@ -436,6 +444,8 @@ public class BoardUI extends JFrame {
 		currentPlayer.setTurnLocations(new ArrayList<>());
 		currentHand = currentPlayer.getHand();
 		playerTurnLabel.setText(playerNames.get(currentPlayer.getName()) + "'s turn");
+		playerTokenPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		playerTokenPanel.add(new JLabel(getPlayerToken(currentPlayer.getName())));
 		handLabel.setText(playerNames.get(currentPlayer.getName()) + "'s hand");
 		setupPlayersHand();
 		
@@ -498,6 +508,38 @@ public class BoardUI extends JFrame {
 		} else {
 			System.out.println("else: " + playerIndex);
 			return players.get(playerIndex++);
+		}
+	}
+	
+	
+	/**
+	 * Gets the players image token from their name
+	 * 
+	 * @param name - name of the player
+	 * @return - 
+	 */
+	private ImageIcon getPlayerToken(String name) {
+		if(name.equals("Mrs. White")) {
+			return new ImageIcon(MRS_WHITE);
+		
+		} else if(name.equals("Mr. Green")) {
+			return new ImageIcon(MR_GREEN);
+			
+		} else if(name.equals("Mrs. Peacock")) {
+			return new ImageIcon(MRS_PEACOCK);
+			
+		} else if(name.equals("Prof. Plum")) {
+			return new ImageIcon(PROF_PLUM);
+			
+		} else if(name.equals("Miss Scarlett")) {
+			return new ImageIcon(MISS_SCARLETT);
+			
+		} else if(name.equals("Col. Mustard")) {
+			return new ImageIcon(COL_MUSTARD);
+		
+		} else {
+			
+			return null;
 		}
 	}
 	
@@ -787,12 +829,9 @@ public class BoardUI extends JFrame {
     }
 	
 	public void setupNumPlayers() {
-        new PlayerSetup(this, SwingUtilities.windowForComponent(this),
+        new PlayerSetupUI(this, SwingUtilities.windowForComponent(this),
                 "Character Selection");
     }
-
-
-	
 }
 
 
