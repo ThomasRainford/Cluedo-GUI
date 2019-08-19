@@ -58,10 +58,11 @@ public class TitleUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		
 		JLabel lblCluedo = new JLabel(new ImageIcon(TITLE));
 		lblCluedo.setFont(new Font("Arial Black", Font.PLAIN, 54));
-		lblCluedo.setBounds(0, 0, 684, 390);
+		lblCluedo.setBounds(0, 0, 694, 400);
 		frame.getContentPane().add(lblCluedo);
 		
 		JMenuBar menuBar = new JMenuBar();

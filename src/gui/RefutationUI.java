@@ -52,6 +52,7 @@ public class RefutationUI extends JDialog {
 			}
 		}
 		
+		
 		setBounds(100, 100, 450, 300);
 		setMinimumSize(new Dimension(500, 275));
 		this.setModal(true);

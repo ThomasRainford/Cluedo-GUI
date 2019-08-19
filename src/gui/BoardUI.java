@@ -160,7 +160,7 @@ public class BoardUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//board panel
+		/* board panel */
 		boardPanel = new JPanel();
 		boardPanel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -184,13 +184,13 @@ public class BoardUI extends JFrame {
 		// setup board
 		setupBoard();
 		
-		// dice panel
+		/* dice panel */
 		dicePanel = new JPanel();
 		dicePanel.setBounds(828, 11, 200, 196);
 		contentPane.add(dicePanel);
 		dicePanel.setLayout(null);
 		
-		// label indicating the player who's turn it is
+		/* label indicating the player who's turn it is */
 		playerTurnLabel = new JLabel("");
 		playerTurnLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		playerTurnLabel.setBounds(78, 11, 112, 27);
@@ -213,12 +213,12 @@ public class BoardUI extends JFrame {
 		diceNumber_2.setBounds(10, 11, 22, 15);
 		dice_2_1.add(diceNumber_2);
 		
-		// moves remaining label
+		/* moves remaining label */
 		movesRemainingLabel = new JLabel("");
 		movesRemainingLabel.setBounds(122, 128, 40, 28);
 		dicePanel.add(movesRemainingLabel);
 		
-		// button to roll the dice
+		/* roll dice button */
 		JButton btnRoll = new JButton("Roll");
 		btnRoll.setBounds(36, 94, 118, 23);
 		btnRoll.addActionListener(l -> {
@@ -256,7 +256,7 @@ public class BoardUI extends JFrame {
 		playerTokenPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		dicePanel.add(playerTokenPanel);
 		
-		// player movement panel
+		/* player movement panel */
 		movementPanel = new JPanel();
 		movementPanel.setBounds(828, 613, 200, 138);
 		contentPane.add(movementPanel);
@@ -326,7 +326,7 @@ public class BoardUI extends JFrame {
 		rightButton.setEnabled(false);
 		movementPanel.add(rightButton);
 		
-		// players hand planel
+		/* player hand panel */
 		JPanel cardPanel = new JPanel();
 		cardPanel.setBounds(794, 218, 280, 314);
 		contentPane.add(cardPanel);
@@ -342,7 +342,7 @@ public class BoardUI extends JFrame {
 		cardPanel.add(handLabel);
 		handLabel.setFont(new Font("Tahoma", Font.BOLD, 14));	
 		
-		// action panel for suggestions and accusations
+		/* action panel for suggestions and accusations */
 		actionPanel = new JPanel();
 		actionPanel.setBounds(828, 543, 201, 59);
 		contentPane.add(actionPanel);
@@ -374,7 +374,7 @@ public class BoardUI extends JFrame {
 		actionPanel.add(btnAccusation);
 		btnAccusation.setEnabled(false);
 		
-		// button to go to next players turn
+		/* next player button */
 		nextPlayerButton = new JButton("Next Player");
 		nextPlayerButton.addActionListener(l -> {
 			doTurn();
@@ -391,6 +391,7 @@ public class BoardUI extends JFrame {
 		contentPane.add(nextPlayerButton);
 		nextPlayerButton.setEnabled(false);
 		
+		/* Menu bar */
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 45, 21);
 		contentPane.add(menuBar);

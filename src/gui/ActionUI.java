@@ -123,9 +123,11 @@ public class ActionUI extends JDialog {
         actionSubmitButton.addActionListener(l -> {
         	if(isSuggestion()) {
 	        	createAction(true);
-	        	doRefutation("Refutation");
-	        	game.getBoard().movePlayerToRoom(action.getCharacterCard().getToken(game.getPlayers()), (Room) currentPlayer.getLocation(), game.getPlayers());
-	            game.getBoard().moveWeaponToRoom(action.getWeaponCard().getToken(game.getWeapons()), (Room) currentPlayer.getLocation());
+	        	if(!isMurder()) {
+		        	doRefutation("Refutation");
+		        	game.getBoard().movePlayerToRoom(action.getCharacterCard().getToken(game.getPlayers()), (Room) currentPlayer.getLocation(), game.getPlayers());
+		            game.getBoard().moveWeaponToRoom(action.getWeaponCard().getToken(game.getWeapons()), (Room) currentPlayer.getLocation());
+	        	}
 	            
 	        	actionSubmitButton.setEnabled(false);
 	        	viewRefutationButton.setEnabled(true);
@@ -209,6 +211,19 @@ public class ActionUI extends JDialog {
 		WeaponCard wc = (WeaponCard) currentPlayer.getCardByName(weapon, game.getAllCards());
 
         action = new Suggestion(cc, rc, wc, isSuggestion);
+	}
+	
+	
+	/**
+	 * checks the suggestion to see if it is the same 
+	 * as the murder.
+	 * 
+	 * @return - boolean
+	 */
+	private boolean isMurder() {
+		return (game.getMurder().contains(action.getCharacterCard()) || 
+				game.getMurder().contains(action.getRoomCard())) ||
+				game.getMurder().contains(action.getWeaponCard());
 	}
 	
 	
