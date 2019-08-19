@@ -99,7 +99,7 @@ public class AccusationUI extends JDialog {
 		
 		} else {
 			if(game.getPlayers().size() == 1) {
-				accusationResultLabel.setText("Only " + game.getPlayers().get(0) + " remains!");
+				accusationResultLabel.setText("Only " + game.getPlayers().get(0).getName() + " remains!");
 				
 			} else {
 				accusationResultLabel.setText("Correct Accusation!");

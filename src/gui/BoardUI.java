@@ -253,6 +253,7 @@ public class BoardUI extends JFrame {
 		
 		playerTokenPanel = new JPanel();
 		playerTokenPanel.setBounds(36, 11, 32, 30);
+		playerTokenPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		dicePanel.add(playerTokenPanel);
 		
 		// player movement panel
@@ -444,7 +445,7 @@ public class BoardUI extends JFrame {
 		currentPlayer.setTurnLocations(new ArrayList<>());
 		currentHand = currentPlayer.getHand();
 		playerTurnLabel.setText(playerNames.get(currentPlayer.getName()) + "'s turn");
-		playerTokenPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		playerTokenPanel.removeAll();
 		playerTokenPanel.add(new JLabel(getPlayerToken(currentPlayer.getName())));
 		handLabel.setText(playerNames.get(currentPlayer.getName()) + "'s hand");
 		setupPlayersHand();
