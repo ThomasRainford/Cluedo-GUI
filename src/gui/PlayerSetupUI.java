@@ -24,6 +24,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PlayerSetupUI extends JDialog {
 	
@@ -45,6 +47,7 @@ public class PlayerSetupUI extends JDialog {
 	 */
 	public PlayerSetupUI(JFrame frame, Window window, String title) {
 		super(window, title);
+		
 		setMinimumSize(new Dimension(350, 450));
 		
 		playerNames = new HashMap<>();
@@ -102,6 +105,12 @@ public class PlayerSetupUI extends JDialog {
         rdbtnNewRadioButton_5.setBounds(118, 205, 109, 23);
         getContentPane().add(rdbtnNewRadioButton_5);
         
+        actionListner(rdbtnNewRadioButton);
+        actionListner(rdbtnNewRadioButton_1);
+        actionListner(rdbtnNewRadioButton_2);
+        actionListner(rdbtnNewRadioButton_3);
+        actionListner(rdbtnNewRadioButton_4);
+        actionListner(rdbtnNewRadioButton_5);
         
         // name label
         JLabel lblNewLabel = new JLabel("Enter your name");
@@ -119,6 +128,7 @@ public class PlayerSetupUI extends JDialog {
         		}
         	}
         });
+        
         //ensure can't go next when no name is entered
         Document textFieldDoc = textField.getDocument();
         textFieldDoc.addDocumentListener(new DocumentListener() {
@@ -139,6 +149,7 @@ public class PlayerSetupUI extends JDialog {
         textField.setBounds(106, 286, 131, 20);
         getContentPane().add(textField);
         textField.setColumns(10);
+        textField.setEnabled(false);
         
         // next button
         nextButton = new JButton("Next");
@@ -168,23 +179,40 @@ public class PlayerSetupUI extends JDialog {
         continueButton.setBounds(118, 371, 109, 23);
         getContentPane().add(continueButton);
         continueButton.setEnabled(false);
-        
-        
-        
+
         this.setVisible(true);
         
 	}
+	
+	
+	/**
+	 * Adds an action listner to each radio button
+	 * Ensures when a radio button is not selected a 
+	 * player cannot re-enter there name and create duplicate
+	 * players
+	 * 
+	 * @param rb - the radio button
+	 */
+	private void actionListner(JRadioButton rb) {
+		rb.addActionListener(l -> {
+			if(isSelection()) {
+				textField.setEnabled(true);
+			}
+			
+		});
+	}
+	
+	
 	
 	/**
 	 * Stores the new player who was inputted
 	 */
 	private void pressNextButton() {
-		
+		textField.setEnabled(false);
     	for(JRadioButton rb : rbList) {
         	if(rb.isSelected()) {
         		names.add(rb.getText());
         		playerNames.put(rb.getText(), textField.getText());
-        		
         		
         		rb.setSelected(false);
                 rb.setEnabled(false);
@@ -193,9 +221,19 @@ public class PlayerSetupUI extends JDialog {
     	textField.setText("");
     	
     	// enable continue button
-    	if(names.size() >= 1) { // TODO: Change to 3
+    	if(names.size() >= 3) { // TODO: Change to 3
     		continueButton.setEnabled(true);
     	}
         
+	}
+	
+	
+	/**
+	 * checks if there is a radio button selected
+	 * 
+	 * @return - boolean
+	 */
+	private boolean isSelection() {
+		return buttonGroup.getSelection() != null;
 	}
 }
