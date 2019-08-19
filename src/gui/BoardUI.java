@@ -65,8 +65,8 @@ public class BoardUI extends JFrame {
 	private JPanel boardPanel;
 	private JPanel contentPane;
 	private JPanel playerTokenPanel;
-	private JLabel diceNumber_1;
-	private JLabel diceNumber_2;
+	private JPanel diceOnePanel;
+	private JPanel diceTwoPanel;
 	private JLabel playerTurnLabel;
 	private JButton nextPlayerButton;
 	private JPanel dicePanel;
@@ -136,6 +136,13 @@ public class BoardUI extends JFrame {
 	private final Image LIBRARY_CARD = loadImage("library-card.png");
 	private final Image CONSERVATORY_CARD = loadImage("conservatory-card.png");
 
+	// Dice
+	private final Image DICE_1 = loadImage("dice1.png");
+	private final Image DICE_2 = loadImage("dice2.png");
+	private final Image DICE_3 = loadImage("dice3.png");
+	private final Image DICE_4 = loadImage("dice4.png");
+	private final Image DICE_5 = loadImage("dice5.png");
+	private final Image DICE_6 = loadImage("dice6.png");
 	
 	
 	/**
@@ -195,23 +202,15 @@ public class BoardUI extends JFrame {
 		playerTurnLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		playerTurnLabel.setBounds(78, 11, 112, 27);
 		dicePanel.add(playerTurnLabel);
-		JPanel dice_1_1 = new JPanel();
-		dice_1_1.setBounds(36, 52, 32, 31);
-		dicePanel.add(dice_1_1);
-		dice_1_1.setLayout(null);
+		diceOnePanel = new JPanel();
+		diceOnePanel.setBounds(36, 52, 32, 31);
+		dicePanel.add(diceOnePanel);
+		diceOnePanel.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		diceNumber_1 = new JLabel("1");
-		diceNumber_1.setBounds(10, 11, 22, 14);
-		dice_1_1.add(diceNumber_1);
-		
-		JPanel dice_2_1 = new JPanel();
-		dice_2_1.setBounds(122, 52, 32, 31);
-		dicePanel.add(dice_2_1);
-		dice_2_1.setLayout(null);
-		
-		diceNumber_2 = new JLabel("1");
-		diceNumber_2.setBounds(10, 11, 22, 15);
-		dice_2_1.add(diceNumber_2);
+		diceTwoPanel = new JPanel();
+		diceTwoPanel.setBounds(122, 52, 32, 31);
+		dicePanel.add(diceTwoPanel);
+		diceTwoPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		/* moves remaining label */
 		movesRemainingLabel = new JLabel("");
@@ -552,10 +551,42 @@ public class BoardUI extends JFrame {
 	private void rollDice() {
 		dice_1 = game.dice_1();
 		dice_2 = game.dice_2();
-		//movesRemaining = dice_1 + dice_2;
-		movesRemaining = 12;
-		diceNumber_1.setText(Integer.toString(dice_1));
-		diceNumber_2.setText(Integer.toString(dice_2));
+		movesRemaining = dice_1 + dice_2;
+		//movesRemaining = 12;
+		getDiceImage(dice_1, diceOnePanel);
+		getDiceImage(dice_2, diceTwoPanel);
+	}
+	
+	
+	/**
+	 * Adds the dice image to the panel corresponding to the number
+	 * 
+	 * @param number - the dice number
+	 * @param panel - the panel to add the image too
+	 */
+	private void getDiceImage(int number, JPanel panel) {
+		panel.removeAll(); // clear the panel
+		
+		if(number == 1) {
+			panel.add(new JLabel(new ImageIcon(DICE_1)));
+		
+		} else if (number == 2) {
+			panel.add(new JLabel(new ImageIcon(DICE_2)));
+		
+		} else if (number == 3) {
+			panel.add(new JLabel(new ImageIcon(DICE_3)));
+		
+		} else if (number == 4) {
+			panel.add(new JLabel(new ImageIcon(DICE_4)));
+			
+		} else if (number == 5) {
+			panel.add(new JLabel(new ImageIcon(DICE_5)));
+			
+		} else if (number == 6) {
+			panel.add(new JLabel(new ImageIcon(DICE_6)));
+			
+		}
+		
 	}
 	
 	
