@@ -155,11 +155,7 @@ public class RefutationUI extends JDialog {
 	 */
 	private List<Player> setRefutors(){
 		List<Player> refutors = actionUI.getRefutors();
-		System.out.println("PlayersB: " + game.getPlayers().size());
-		System.out.println("refutorsB: " + refutors.size());
 		refutors.remove(currentPlayer);
-		System.out.println("PlayersA: " + game.getPlayers().size());
-		System.out.println("refutorsA: " + refutors.size());
 		return refutors;
 	}
 	

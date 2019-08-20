@@ -111,6 +111,7 @@ public class BoardUI extends JFrame {
 	private final Image PROF_PLUM = loadImage("prof-plum.png");
 	
 	// Cards
+	
 	// Character
 	private final Image MISS_SCARLETT_CARD = loadImage("miss-scarlett-card.png");
 	private final Image MRS_WHITE_CARD = loadImage("mrs-white-card.png");
@@ -156,7 +157,7 @@ public class BoardUI extends JFrame {
 		this.board = game.getBoard();
 		this.playerNames = playerNames;
 		
-		game.printMurder();
+		game.printMurder();	//print the murder circumstances to the console so it can be read, but is not displayed on the GUI
 		locations = game.getBoard().getBoard();
 		
 		setTitle("Cluedo");
@@ -179,8 +180,6 @@ public class BoardUI extends JFrame {
 				if(label == null || boardTokens.get(label) == null) {
 					return;
 				
-				} else {
-					System.out.println(boardTokens.get(label).getName());
 				}
 			}
 		});
@@ -238,11 +237,13 @@ public class BoardUI extends JFrame {
 		});
 		dicePanel.add(btnRoll);
 		
+		//Moves Remaining Label
 		lblMoveRemaining = new JLabel("Moves Remaining: ");
 		lblMoveRemaining.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblMoveRemaining.setBounds(10, 128, 102, 28);
 		dicePanel.add(lblMoveRemaining);
 		
+		//Location Label
 		lblLocationLabel = new JLabel("Location:");
 		lblLocationLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblLocationLabel.setBounds(10, 167, 57, 17);
@@ -269,7 +270,6 @@ public class BoardUI extends JFrame {
 		upButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println(e);
 				movePlayer(0,-1);
 				updateBoard();
 			}		
@@ -286,10 +286,6 @@ public class BoardUI extends JFrame {
 		});
 		
 		movementButtonGroup.add(upButton);
-//		upButton.addActionListener(l -> {
-//			System.out.println("pressed");
-//			
-//		});
 		upButton.setBounds(73, 11, 52, 48);
 		upButton.setEnabled(false);
 		movementPanel.add(upButton);
@@ -450,7 +446,6 @@ public class BoardUI extends JFrame {
 	 * Carrys out the currentPlayers turn
 	 */
 	private void doTurn() {
-		//if(action != null) { System.out.println(action.getSuggestion().toString()); }
 		this.players = game.getPlayers();
 		currentPlayer = getNextPlayer(players);
 		currentPlayer.setTurnLocations(new ArrayList<>());
@@ -460,10 +455,6 @@ public class BoardUI extends JFrame {
 		playerTokenPanel.add(new JLabel(getPlayerToken(currentPlayer.getName())));
 		handLabel.setText(playerNames.get(currentPlayer.getName()) + "'s hand");
 		setupPlayersHand();
-		
-		game.getBoard().printBoard();
-		
-		
 	}
 	
 	
@@ -513,12 +504,10 @@ public class BoardUI extends JFrame {
 	private Player getNextPlayer(List<Player> players) {
 		if(playerIndex == players.size()) {
 			playerIndex = 0;
-			System.out.println("if: " + playerIndex);
 			return players.get(playerIndex++);
 			
 			
 		} else {
-			System.out.println("else: " + playerIndex);
 			return players.get(playerIndex++);
 		}
 	}
