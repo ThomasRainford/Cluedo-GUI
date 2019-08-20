@@ -106,8 +106,6 @@ public class AccusationUI extends JDialog {
 				accusationResultLabel.setText("Correct Accusation!");
 				playerOutcomeLabel.setText(playerNames.get(currentPlayer.getName()) + " has won");
 			}
-			
-			
 		}
 	}
 	

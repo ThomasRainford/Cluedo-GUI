@@ -195,14 +195,14 @@ public class BoardUI extends JFrame {
 		
 		/* dice panel */
 		dicePanel = new JPanel();
-		dicePanel.setBounds(828, 11, 200, 196);
+		dicePanel.setBounds(828, 11, 224, 196);
 		contentPane.add(dicePanel);
 		dicePanel.setLayout(null);
 		
 		/* label indicating the player who's turn it is */
 		playerTurnLabel = new JLabel("");
-		playerTurnLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		playerTurnLabel.setBounds(78, 11, 112, 27);
+		playerTurnLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		playerTurnLabel.setBounds(78, 11, 146, 27);
 		dicePanel.add(playerTurnLabel);
 		diceOnePanel = new JPanel();
 		diceOnePanel.setBounds(36, 52, 32, 31);
@@ -348,7 +348,7 @@ public class BoardUI extends JFrame {
 		handPanel.setLayout(new GridLayout(3, 3, 0, 0));
 		
 		handLabel = new JLabel("");
-		handLabel.setBounds(86, 0, 116, 23);
+		handLabel.setBounds(86, 0, 194, 23);
 		cardPanel.add(handLabel);
 		handLabel.setFont(new Font("Tahoma", Font.BOLD, 14));	
 		
