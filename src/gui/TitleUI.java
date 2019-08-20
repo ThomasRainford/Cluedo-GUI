@@ -51,6 +51,9 @@ public class TitleUI {
 	}
 	
 	
+	/**
+	 * Initialises the GUI
+	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Cluedo");
@@ -117,6 +120,9 @@ public class TitleUI {
 	}
 	
 	
+	/**
+	 * Opens the player setup gui
+	 */
 	public void setupPlayers() {
         new PlayerSetupUI(frame, SwingUtilities.windowForComponent(frame),
                 "Character Selection");

@@ -83,6 +83,11 @@ public class ViewRefutationCardsUI extends JDialog {
 	}
 	
 	
+	/**
+	 * Adds the refutation cards to the card panels
+	 * 
+	 * @param refutationCards - the lost of refutation cards
+	 */
 	private void addCards(List<String> refutationCards) {
 		if(refutationCards.size() > 0) {
 			getCardImage(card1, boardUI.getCurrentPlayer().getCardByName(refutationCards.get(0), game.getAllCards()));
@@ -99,6 +104,12 @@ public class ViewRefutationCardsUI extends JDialog {
 	}
 	
 	
+	/**
+	 * Gets the image for the card
+	 * 
+	 * @param panel - the panel to add the image to
+	 * @param card - the card
+	 */
 	private void getCardImage(JPanel panel, Card card) {
 		boardUI.getCardImage(panel, card);
 	}

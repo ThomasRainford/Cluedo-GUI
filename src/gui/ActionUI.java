@@ -227,24 +227,32 @@ public class ActionUI extends JDialog {
 	}
 	
 	
-
-	public Suggestion getSuggestion() {
-		return action;
-	}
 	
+	/**
+	 * adds a cards name to the refutation cards
+	 * 
+	 * @param cardName - the name of the card
+	 */
 	public void addRefutationCards(String cardName) {
 		refutationCards.add(cardName);
 	}
 	
 	
-	public void doRefutation(String title) {
-        refutationUI = new RefutationUI(frame, SwingUtilities.windowForComponent(this), title, currentPlayer, game, action, this, playerNames);
-    } 
+	/**
+	 * Determines if the current action is a suggestion or not
+	 * 
+	 * @return - boolean
+	 */
+	public boolean isSuggestion() {
+		return getTitle().equals("Suggestion");
+	}
 	
-	public void doViewRefutation(String title) {
-        new ViewRefutationCardsUI(frame, SwingUtilities.windowForComponent(this), title, this, refutationUI);
-    } 
-
+	
+	/* Getters and Setters */
+	
+	public Suggestion getSuggestion() {
+		return action;
+	}
 
 	public List<String> getRefutationCards() {
 		return refutationCards;
@@ -252,14 +260,6 @@ public class ActionUI extends JDialog {
 	
 	public List<Player> getRefutors(){
 		return refutors;	
-	}
-	
-	public void setRefutors(List<Player> refutors) {
-		this.refutors = refutors;
-	}
-	
-	public boolean isSuggestion() {
-		return getTitle().equals("Suggestion");
 	}
 	
 	public boolean getCorrect() {
@@ -274,7 +274,37 @@ public class ActionUI extends JDialog {
 		return boardUI;
 	}
 	
+	public void setRefutors(List<Player> refutors) {
+		this.refutors = refutors;
+	}
 	
+	
+	/**
+	 * Does the refutation process
+	 * 
+	 * @param title
+	 */
+	public void doRefutation(String title) {
+        refutationUI = new RefutationUI(frame, SwingUtilities.windowForComponent(this), title, currentPlayer, game, action, this, playerNames);
+    } 
+	
+	
+	/**
+	 * View the refutation once the refutation is complete
+	 * 
+	 * @param title - title of the window
+	 */
+	public void doViewRefutation(String title) {
+        new ViewRefutationCardsUI(frame, SwingUtilities.windowForComponent(this), title, this, refutationUI);
+    } 
+	
+	
+	/**
+	 * 
+	 * 
+	 * @param title
+	 * @param correct
+	 */
 	public void doAction(String title, boolean correct) {
         new AccusationUI(this, SwingUtilities.windowForComponent(this), title, correct, currentPlayer, game, playerNames);
     }

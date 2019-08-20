@@ -48,6 +48,7 @@ import javax.swing.JOptionPane;
 
 public class BoardUI extends JFrame {
 	
+	/* Game logic fields */
 	private Game game;
 	private Board board;
 	private Location[][] locations;
@@ -61,6 +62,7 @@ public class BoardUI extends JFrame {
 	private int movesRemaining;
 	private Map<JLabel, Token> boardTokens;
 	
+	/* UI fields */
 	private ActionUI action;
 	private JPanel boardPanel;
 	private JPanel contentPane;
@@ -295,9 +297,12 @@ public class BoardUI extends JFrame {
 		// a button
 		leftButton = new JButton("A");
 		movementButtonGroup.add(leftButton);
-		leftButton.addActionListener(l -> {
-			movePlayer(-1,0);
-			updateBoard();
+		leftButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				movePlayer(-1,0);
+				updateBoard();
+			}
 		});
 		leftButton.setBounds(10, 70, 52, 48);
 		leftButton.setEnabled(false);
@@ -306,9 +311,12 @@ public class BoardUI extends JFrame {
 		// s button
 		downButton = new JButton("S");
 		movementButtonGroup.add(downButton);
-		downButton.addActionListener(l -> {
-			movePlayer(0,1);
-			updateBoard();
+		downButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				movePlayer(0,1);
+				updateBoard();
+			}
 		});
 		downButton.setBounds(73, 70, 52, 48);
 		downButton.setEnabled(false);
@@ -317,9 +325,12 @@ public class BoardUI extends JFrame {
 		// d button
 		rightButton = new JButton("D");
 		movementButtonGroup.add(rightButton);
-		rightButton.addActionListener(l -> {
-			movePlayer(1,0);
-			updateBoard();
+		rightButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				movePlayer(1,0);
+				updateBoard();
+			}
 		});
 		rightButton.setBounds(135, 70, 52, 48);
 		rightButton.setEnabled(false);
@@ -402,7 +413,7 @@ public class BoardUI extends JFrame {
 		newGameMenuItem.addActionListener(l -> {
 			dispose();
 			new Game();
-			setupNumPlayers();
+			setupPlayers();
 			
 		});
 		mnNewMenu.add(newGameMenuItem);
@@ -602,7 +613,9 @@ public class BoardUI extends JFrame {
 	
 	
 	/**
+	 * Changes the enable state of the movement controls
 	 * 
+	 * @para bool -  the state to change the movement buttons too
 	 */
 	private void changeMovementEnable(boolean bool) {
 		Enumeration<AbstractButton> enumeration = movementButtonGroup.getElements();
@@ -625,6 +638,13 @@ public class BoardUI extends JFrame {
 	}
 	
 	
+	/**
+	 * Gets the images corresponing to the card then
+	 * adds it to the panel
+	 * 
+	 * @param panel - the panel to add the image too
+	 * @param card - the card
+	 */
 	public void getCardImage(JPanel panel, Card card) {
 		// character cards
 		if(card.getName().equals("Mr. Green")) {
@@ -845,6 +865,8 @@ public class BoardUI extends JFrame {
 	}
 	
 	
+	/* Getters */
+	
 	public Game getGame() {
 		return game;
 	}
@@ -854,14 +876,21 @@ public class BoardUI extends JFrame {
 	}
 	
 	
-	
-	
-	
+	/**
+	 * Carrys out an action
+	 * 
+	 * @param title - title of the window
+	 * @param isSuggestion - if the action is a suggestion or not
+	 */
 	public void doAction(String title, boolean isSuggestion) {
         action = new ActionUI(this, SwingUtilities.windowForComponent(this), title, currentPlayer, game, playerNames, isSuggestion, this);
     }
 	
-	public void setupNumPlayers() {
+	
+	/**
+	 * Sets up the players for a new game
+	 */
+	public void setupPlayers() {
         new PlayerSetupUI(this, SwingUtilities.windowForComponent(this),
                 "Character Selection");
     }

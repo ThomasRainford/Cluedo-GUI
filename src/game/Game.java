@@ -130,23 +130,13 @@ public class Game {
     /**
      * Initialise player which have been selected
      *
-     * @param names - 
+     * @param names - names of the players
      */
     public void initialisePlayers(List<String> names) {
     	players = new ArrayList<>();
     	for(String name : names) {
     		players.add(new Player(name, null));
-    	}
-    	
-
-//        players.add(new Player("Mrs. White", null));
-//        players.add(new Player("Mr. Green", null));
-//        players.add(new Player("Mrs. Peacock", null));
-//        players.add(new Player("Prof. Plum", null));
-//        players.add(new Player("Miss Scarlett", null));
-//        players.add(new Player("Col. Mustard", null));
-        
-        
+    	}        
     }
     
     

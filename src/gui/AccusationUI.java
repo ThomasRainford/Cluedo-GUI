@@ -67,7 +67,7 @@ public class AccusationUI extends JDialog {
         	actionUI.dispose();
         	actionUI.getFrame().dispose();
 			new Game();
-			setupNumPlayers(actionUI);
+			setupPlayers(actionUI);
         });
         newGameButton.setBounds(118, 137, 102, 31);
         getContentPane().add(newGameButton);
@@ -110,7 +110,7 @@ public class AccusationUI extends JDialog {
 	}
 	
 	
-	public void setupNumPlayers(ActionUI actionUI) {
+	public void setupPlayers(ActionUI actionUI) {
         new PlayerSetupUI(actionUI.getFrame(), SwingUtilities.windowForComponent(actionUI.getFrame()),
                 "Character Selection");
     }
