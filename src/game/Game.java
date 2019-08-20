@@ -477,10 +477,10 @@ public class Game {
      */
     public List<Player> incorrectAccusation(Player player) {
     	playersTemp = new ArrayList<>();
-        System.out.println("Incorrect Accusation!");
+        //System.out.println("Incorrect Accusation!");
         playersTemp.addAll(players);
         playersTemp.remove(player);
-        System.out.println(player.getName() + " is out of the game!");
+        //System.out.println(player.getName() + " is out of the game!");
 
         return playersTemp;
 

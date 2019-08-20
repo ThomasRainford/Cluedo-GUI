@@ -157,7 +157,6 @@ public class BoardUI extends JFrame {
 		this.board = game.getBoard();
 		this.playerNames = playerNames;
 		
-		game.printMurder();	//print the murder circumstances to the console so it can be read, but is not displayed on the GUI
 		locations = game.getBoard().getBoard();
 		
 		setTitle("Cluedo");
@@ -277,7 +276,7 @@ public class BoardUI extends JFrame {
 		upButton.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				System.out.println(e);
+				//System.out.println(e);
 				if(e.getKeyCode() == KeyEvent.VK_UP) {				
 					movePlayer(0,-1);
 					updateBoard();
