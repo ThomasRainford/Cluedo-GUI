@@ -221,7 +221,7 @@ public class PlayerSetupUI extends JDialog {
     	textField.setText("");
     	
     	// enable continue button
-    	if(names.size() >= 3) { // TODO: Change to 3
+    	if(names.size() >= 3) {
     		continueButton.setEnabled(true);
     	}
         

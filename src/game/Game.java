@@ -51,8 +51,6 @@ public class Game {
                     answer = sc.next();
 
                 } while (!answer.equals("r"));
-                //Game.clearConsole();
-                board.printBoard();
 
                 int diceValue = rollDice();
                 System.out.println("Dice Roll: " + diceValue + "\n");
@@ -101,7 +99,6 @@ public class Game {
         initialiseWeapons();
         board.setupBoard(players, weapons, names.size());
         initialiseCards(names.size());
-        board.printBoard();
     }
 
 
