@@ -100,12 +100,14 @@ public class AccusationUI extends JDialog {
 		} else {
 			if(game.getPlayers().size() == 1) {
 				accusationResultLabel.setText("Only " + game.getPlayers().get(0).getName() + " remains!");
+				playerOutcomeLabel.setText(playerNames.get(game.getPlayers().get(0).getName()) + " has won");
 				
 			} else {
 				accusationResultLabel.setText("Correct Accusation!");
+				playerOutcomeLabel.setText(playerNames.get(currentPlayer.getName()) + " has won");
 			}
 			
-			playerOutcomeLabel.setText(playerNames.get(currentPlayer.getName()) + " has won");
+			
 		}
 	}
 	

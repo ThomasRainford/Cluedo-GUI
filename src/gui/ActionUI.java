@@ -221,8 +221,8 @@ public class ActionUI extends JDialog {
 	 * @return - boolean
 	 */
 	private boolean isMurder() {
-		return (game.getMurder().contains(action.getCharacterCard()) || 
-				game.getMurder().contains(action.getRoomCard())) ||
+		return (game.getMurder().contains(action.getCharacterCard()) && 
+				game.getMurder().contains(action.getRoomCard())) &&
 				game.getMurder().contains(action.getWeaponCard());
 	}
 	
