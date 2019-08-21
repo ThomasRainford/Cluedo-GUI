@@ -85,6 +85,8 @@ public class Game {
      * Setup the board, player and cards as well as
      * getting user input for the games parameters
      * i.e. The number of players
+     * 
+     * @param names- the List of names
      */
     public void setupGame(List<String> names) {
 //        Scanner sc = new Scanner(System.in);
