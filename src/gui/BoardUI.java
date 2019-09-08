@@ -100,7 +100,7 @@ public class BoardUI extends JFrame {
 	private final Image SPANNER_TILE = loadImage("wrench.png");
 	private final Image CANDLESTICK_TILE = loadImage("candlestick.png");
 	private final Image REVOLVER_TILE = loadImage("gun.png");
-	private final Image DAGGER_TILE = loadImage("gun.png");
+	private final Image DAGGER_TILE = loadImage("knife.png");
 	
 	// character tokens
 	private final Image MISS_SCARLETT = loadImage("miss-scarlett.png");
